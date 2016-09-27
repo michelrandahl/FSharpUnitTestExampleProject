@@ -2,6 +2,12 @@
 if test "$OS" = "Windows_NT"
 then
   # use .Net
+  # not sure if following will work for .Net
+  mkdir .paket
+  cd .paket
+  wget https://github.com/fsprojects/Paket/releases/download/3.19.8/paket.bootstrapper.exe
+  cd ..
+
 
   .paket/paket.bootstrapper.exe
   exit_code=$?
