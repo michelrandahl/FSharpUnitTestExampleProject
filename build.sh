@@ -18,6 +18,11 @@ then
   packages/FAKE/tools/FAKE.exe $@ --fsiargs build.fsx
 else
   # use mono
+  mkdir .paket
+  cd .paket
+  wget https://github.com/fsprojects/Paket/releases/download/3.19.8/paket.bootstrapper.exe
+  cd ..
+
   mono .paket/paket.bootstrapper.exe
   exit_code=$?
   if [ $exit_code -ne 0 ]; then
